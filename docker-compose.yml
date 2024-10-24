@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  robot-app:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+    command: ['npm', 'run', 'dev']
+    tty: true
+    stdin_open: true
+
+  robot-app-test:
+    build: .
+    command: ['npm', 'test']
