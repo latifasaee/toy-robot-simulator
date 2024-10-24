@@ -1,7 +1,12 @@
-import { Direction } from './enum';
+import { Direction, RobotState } from './enum';
+import { Position } from './position';
 
 export interface IRobot {
   place(x: number, y: number, direction: Direction): void;
+  move(): Position | undefined;
+  updatePosition(newPosition: Position): void;
+  rotateLeft(): void;
+  rotateRight(): void;
   report(): string;
   isPlaced(): boolean;
 }
@@ -18,8 +23,8 @@ export interface IPosition {
   x: number;
   y: number;
   direction: Direction;
-  getNextPosition(): IPosition;
-  rotateLeft(): Direction;
-  rotateRight(): Direction;
+  getNextPosition(): Position;
+  rotateLeft(): Position;
+  rotateRight(): Position;
   report(): string;
 }

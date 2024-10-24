@@ -1,7 +1,7 @@
 import { BaseCommand } from './base-command';
-import { Robot } from '../robot-controller';
+import { Robot } from '../robot';
 import { Table } from '../table';
-import { Position } from '../robot-position';
+import { Position } from '../position';
 import { Direction } from '../enum';
 
 export class PlaceCommand extends BaseCommand {

@@ -1,8 +1,8 @@
 import { LeftCommand } from '../../src/commands/left-command';
 import { PlaceCommand } from '../../src/commands/place-command';
-import { Robot } from '../../src/robot-controller';
+import { Robot } from '../../src/robot';
 import { Table } from '../../src/table';
-import { Position } from '../../src/robot-position';
+import { Position } from '../../src/position';
 import { Direction } from '../../src/enum';
 
 describe('LeftCommand', () => {

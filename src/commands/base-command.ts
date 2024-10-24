@@ -1,5 +1,5 @@
 import { ICommand } from '../interfaces';
-import { Robot } from '../robot-controller';
+import { Robot } from '../robot';
 import { Table } from '../table';
 
 export class BaseCommand implements ICommand {

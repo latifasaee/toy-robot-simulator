@@ -4,12 +4,12 @@ import { MoveCommand } from '../src/commands/move-command';
 import { LeftCommand } from '../src/commands/left-command';
 import { RightCommand } from '../src/commands/right-command';
 import { ReportCommand } from '../src/commands/report-command';
-import { Position } from '../src/robot-position';
-import { Robot } from '../src/robot-controller';
+import { Position } from '../src/position';
+import { Robot } from '../src/robot';
 import { Table } from '../src/table';
 import { Direction } from '../src/enum';
 
-jest.mock('../src/robot-position', () => ({
+jest.mock('../src/position', () => ({
   __esModule: true,
   Position: jest.fn().mockImplementation((x, y, direction) => {
     return {

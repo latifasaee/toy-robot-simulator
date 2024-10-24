@@ -30,12 +30,12 @@ export class Position implements IPosition {
     return new Position(newX, newY, this.direction);
   }
 
-  rotateLeft(): Direction {
-    return this.getNewDirection(-1);
+  rotateLeft(): Position {
+    return new Position(this.x, this.y, this.getNewDirection(-1));
   }
 
-  rotateRight(): Direction {
-    return this.getNewDirection(1);
+  rotateRight(): Position {
+    return new Position(this.x, this.y, this.getNewDirection(1));
   }
 
   report(): string {

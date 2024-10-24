@@ -1,4 +1,4 @@
-import { Position } from '../src/robot-position';
+import { Position } from '../src/position';
 import { Direction } from '../src/enum';
 
 describe('Position', () => {
@@ -36,14 +36,18 @@ describe('Position', () => {
 
   it('should rotate left correctly', () => {
     const position = new Position(0, 0, Direction.NORTH);
-    const newDirection = position.rotateLeft();
-    expect(newDirection).toBe(Direction.WEST);
+    const newPosition = position.rotateLeft();
+    expect(newPosition.direction).toBe(Direction.WEST);
+    expect(newPosition.x).toBe(0);
+    expect(newPosition.y).toBe(0);
   });
 
   it('should rotate right correctly', () => {
     const position = new Position(0, 0, Direction.NORTH);
-    const newDirection = position.rotateRight();
-    expect(newDirection).toBe(Direction.EAST);
+    const newPosition = position.rotateRight();
+    expect(newPosition.direction).toBe(Direction.EAST);
+    expect(newPosition.x).toBe(0);
+    expect(newPosition.y).toBe(0);
   });
 
   it('should report the current position and direction correctly', () => {

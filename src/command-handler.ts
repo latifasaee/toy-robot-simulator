@@ -5,8 +5,8 @@ import { ReportCommand } from './commands/report-command';
 import { RightCommand } from './commands/right-command';
 import { CommandType, Direction } from './enum';
 import { ICommand, IRobot, ITable } from './interfaces';
-import { Position } from './robot-position';
-import { Robot } from './robot-controller';
+import { Position } from './position';
+import { Robot } from './robot';
 import { Table } from './table';
 
 export class CommandHandler {

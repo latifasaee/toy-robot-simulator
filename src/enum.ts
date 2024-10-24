@@ -5,6 +5,12 @@ export enum CommandType {
   RIGHT = 'RIGHT',
   REPORT = 'REPORT',
 }
+
+export enum RobotState {
+  OFF_TABLE,
+  ON_TABLE,
+}
+
 export enum Direction {
   NORTH = 'NORTH',
   EAST = 'EAST',

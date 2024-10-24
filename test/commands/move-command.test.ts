@@ -1,9 +1,9 @@
-import { Robot } from '../../src/robot-controller';
+import { Robot } from '../../src/robot';
 import { Table } from '../../src/table';
 import { MoveCommand } from '../../src/commands/move-command';
 import { Direction } from '../../src/enum';
 import { PlaceCommand } from '../../src/commands/place-command';
-import { Position } from '../../src/robot-position';
+import { Position } from '../../src/position';
 
 describe('MoveCommand', () => {
   describe('execute', () => {

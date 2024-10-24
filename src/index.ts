@@ -1,5 +1,5 @@
 import { createInterface } from 'readline/promises';
-import { Robot } from './robot-controller';
+import { Robot } from './robot';
 import { Table } from './table';
 import { CommandHandler } from './command-handler';
 
