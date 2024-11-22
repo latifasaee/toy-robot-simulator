@@ -14,7 +14,8 @@ export class PlaceCommand extends BaseCommand {
     if (
       this.position &&
       this.table.isValidPosition(x, y) &&
-      Object.values(Direction).includes(direction)
+      Object.values(Direction).includes(direction) &&
+      !this.table.isObstacle(x, y)
     ) {
       this.robot.place(x, y, direction);
     } else {

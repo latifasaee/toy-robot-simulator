@@ -4,6 +4,8 @@ export enum CommandType {
   LEFT = 'LEFT',
   RIGHT = 'RIGHT',
   REPORT = 'REPORT',
+  OBSTACLE = 'OBSTACLE',
+  FIND = 'FIND',
 }
 
 export enum RobotState {
@@ -24,3 +26,10 @@ export const DirectionValues = [
   Direction.SOUTH,
   Direction.WEST,
 ] as const;
+
+export const DirectionVectors: { [key in Direction]: [number, number] } = {
+  [Direction.NORTH]: [0, 1],
+  [Direction.SOUTH]: [0, -1],
+  [Direction.EAST]: [1, 0],
+  [Direction.WEST]: [-1, 0],
+};

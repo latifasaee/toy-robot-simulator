@@ -8,6 +8,8 @@ import { Position } from '../src/position';
 import { Robot } from '../src/robot';
 import { Table } from '../src/table';
 import { Direction } from '../src/enum';
+import { ObstacleCommand } from '../src/commands/obstacle-command';
+import { FindPathCommand } from '../src/commands/find-path-command';
 
 jest.mock('../src/position', () => ({
   __esModule: true,
@@ -45,12 +47,24 @@ jest.mock('../src/commands/report-command', () => ({
   ReportCommand: jest.fn(),
 }));
 
+jest.mock('../src/commands/obstacle-command', () => ({
+  __esModule: true,
+  ObstacleCommand: jest.fn(),
+}));
+
+jest.mock('../src/commands/find-path-command', () => ({
+  __esModule: true,
+  FindPathCommand: jest.fn(),
+}));
+
 const mockedPosition = jest.mocked(Position);
 const mockedPlaceCommand = jest.mocked(PlaceCommand);
 const mockedMoveCommand = jest.mocked(MoveCommand);
 const mockedLeftCommand = jest.mocked(LeftCommand);
 const mockedRightCommand = jest.mocked(RightCommand);
 const mockedReportCommand = jest.mocked(ReportCommand);
+const mockedObstacleCommand = jest.mocked(ObstacleCommand);
+const mockedFindPathCommand = jest.mocked(FindPathCommand);
 
 describe('CommandHandler', () => {
   let mockRobot: Robot;
@@ -68,6 +82,8 @@ describe('CommandHandler', () => {
     mockedLeftCommand.mockClear();
     mockedRightCommand.mockClear();
     mockedReportCommand.mockClear();
+    mockedObstacleCommand.mockClear();
+    mockedFindPathCommand.mockClear();
   });
 
   describe('parse method', () => {
@@ -136,6 +152,44 @@ describe('CommandHandler', () => {
       it('returns command', () => {
         const command = commandHandler.handle(mockInputRight);
         expect(command).toBeInstanceOf(RightCommand);
+      });
+    });
+
+    describe('OBSTACLE command', () => {
+      const mockInputObstacle = 'OBSTACLE 2, 3';
+
+      it('creates ObstacleCommand with the correct arguments', () => {
+        commandHandler.handle(mockInputObstacle);
+
+        expect(mockedObstacleCommand).toHaveBeenCalledWith(
+          mockRobot,
+          mockTable,
+          { x: 2, y: 3 }
+        );
+      });
+
+      it('returns ObstacleCommand', () => {
+        const command = commandHandler.handle(mockInputObstacle);
+        expect(command).toBeInstanceOf(ObstacleCommand);
+      });
+    });
+
+    describe('FIND command', () => {
+      const mockInputFind = 'FIND 3, 4';
+
+      it('creates FindPathCommand with the correct arguments', () => {
+        commandHandler.handle(mockInputFind);
+
+        expect(mockedFindPathCommand).toHaveBeenCalledWith(
+          mockRobot,
+          mockTable,
+          [3, 4]
+        );
+      });
+
+      it('returns FindPathCommand', () => {
+        const command = commandHandler.handle(mockInputFind);
+        expect(command).toBeInstanceOf(FindPathCommand);
       });
     });
 

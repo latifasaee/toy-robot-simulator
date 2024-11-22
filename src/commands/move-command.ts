@@ -7,7 +7,8 @@ export class MoveCommand extends BaseCommand {
 
       if (
         newPosition &&
-        this.table.isValidPosition(newPosition.x, newPosition.y)
+        this.table.isValidPosition(newPosition.x, newPosition.y) &&
+        !this.table.isObstacle(newPosition.x, newPosition.y)
       ) {
         this.robot.updatePosition(newPosition);
       } else {

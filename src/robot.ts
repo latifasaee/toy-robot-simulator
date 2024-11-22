@@ -31,6 +31,10 @@ export class Robot implements IRobot {
     }
   }
 
+  getRobotPosition(): Position | null {
+    return this.position;
+  }
+
   rotateRight(): void {
     this.checkState();
     if (this.position) {
