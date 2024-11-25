@@ -17,6 +17,8 @@ This project simulates a toy robot moving on a tabletop, following a series of c
   - **MOVE**: Moves the robot one unit forward in the direction it is currently facing.
   - **LEFT**: Rotates the robot 90 degrees to the left without changing its position.
   - **RIGHT**: Rotates the robot 90 degrees to the right without changing its position.
+  - **OBSTACLE X,Y**: Places an obstacle on the table at a specific position (`X,Y`).
+  - **FIND X,Y**: Finds the path from source (0,0) to specified destination (`x,y`) while avoiding obstacles if any.
   - **REPORT**: Outputs the robot's current position and direction.
 - Input validation and error handling.
 - Unit tests for all major functionality using **Jest**.
@@ -73,4 +75,14 @@ LEFT
 MOVE
 REPORT
 Output: 3,3,NORTH
+```
+
+Example Usage with Obstacles and Pathfinding:
+
+```
+PLACE 0,0,NORTH
+OBSTACLE 1,2
+OBSTACLE 2,2
+FIND 3,3
+Output: Path from 0,0 to 3,3: [[0,0],[0,1],[0,2],[0,3],[1,3],[2,3],[3,3]]
 ```
